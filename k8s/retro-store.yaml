@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: retro-store:v1
+          image: docker.io/garycncf/retro-store:v1
       nodeSelector:
         beta.kubernetes.io/os: windows
 ---
