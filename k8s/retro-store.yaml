@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: retro-store
+  name: retro-store-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: retro-store
+  template:
+    metadata:
+      labels:
+        app: retro-store
+      name: retro-store
+    spec:
+      containers:
+        - name: web
+          image: retro-store:v1
+      nodeSelector:
+        beta.kubernetes.io/os: windows
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: retro-store-service
+  labels:
+    name: retro-store-service
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+  selector:
+    app: retro-store
