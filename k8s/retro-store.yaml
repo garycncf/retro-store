@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: retro-store
-  name: retro-store-deployment
+  name: retro-store
 spec:
   replicas: 2
   selector:
@@ -28,9 +28,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: retro-store-service
+  name: retro-store
   labels:
-    name: retro-store-service
+    name: retro-store
 spec:
   type: ClusterIP
   ports:
