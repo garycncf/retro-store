@@ -15,6 +15,10 @@ spec:
         app: retro-store
       name: retro-store
     spec:
+      tolerations:
+      - key: "os"
+        value: "Windows"
+        Effect: "NoSchedule"    
       containers:
         - name: web
           image: docker.io/garycncf/retro-store:v1
